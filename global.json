@@ -1,0 +1,15 @@
+{
+  "projects": [
+    "src",
+    "src/Hapgo.DTO",
+    "src/Hapgo.Entity",
+    "src/Hapgo.Service",
+    "src/Hapgo.Business",
+    "wrap"
+  ],
+  "sdk": {
+    "version": "1.0.0-rc1-final",
+    "architecture": "x64",
+    "runtime": "clr"
+  }
+}

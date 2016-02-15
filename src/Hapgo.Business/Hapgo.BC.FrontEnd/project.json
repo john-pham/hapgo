@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-*",
+  "description": "Hapgo.BC.FrontEnd Class Library",
+  "authors": [ "Rocket" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "dnx451": { }
+  },
+  "dependencies": {
+    "Hapgo.Entity.Repo": "1.0.0-*",
+    "Hapgo.Models.FrontEnd": "1.0.0-*",
+    "Hapgo.Service.FrontEnd": "1.0.0-*"
+  }
+}

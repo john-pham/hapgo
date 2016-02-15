@@ -1,0 +1,26 @@
+<nav>
+    <ul class="pagination">
+        <li>
+            <a role="button" ng-click="app.SelectPrevious()" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li ng-repeat="item in app.Pagelist" ng-class="{'active': item==(app.Current+1)}"><a role="button" ng-click="app.SelectPage(item - 1)">{{item}}</a></li>
+        <li>
+            <a role="button" ng-click="app.SelectNext()" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        <li class="disabled">
+            <span>{{app.Current + 1}} /{{app.TotalPages()}} <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> {{app.Total}}</span>
+        </li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                <span>{{app.Size}}</span> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ng-repeat="item in app.SupportSize"><a role="button" ng-click="app.SelectSize(item)">{{item}}</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>

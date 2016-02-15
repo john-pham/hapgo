@@ -1,0 +1,67 @@
+﻿<!-- Page Heading -->
+<div class="row" ng-init="app.Init()">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <small>Bookmakers</small>
+        </h1>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th><strong>Name</strong></th>
+                    <th><strong>Url</strong></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in app.Items">
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Url}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#md_bookmaker" ng-click="app.Select(item)">
+                            Edit Url
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="md_bookmaker" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">{{app.SelectedItem.Name}}</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Url:</label>
+                        <input type="text" class="form-control" ng-show="app.SelectedItem.Name!='SBO'" ng-model="app.SelectedItem.UrlValue">
+                        <select class="form-control" ng-show="app.SelectedItem.Name=='SBO'" ng-model="app.SelectedItem.UrlValue">
+                            <option value="quote.sbobet.com">quote.sbobet.com</option>
+                            <option value="quote1.sbobet.com">quote1.sbobet.com</option>
+                            <option value="quote2.sbobet.com">quote2.sbobet.com</option>
+                            <option value="quote3.sbobet.com">quote3.sbobet.com</option>
+                            <option value="103.28.202.63">103.28.202.63</option>
+                            <option value="103.28.202.62">103.28.202.62</option>
+                            <option value="103.28.202.61">103.28.202.61</option>
+                            <option value="63.216.192.42">63.216.192.42</option>
+                            <option value="203.133.57.54">203.133.57.54</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="app.Update()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

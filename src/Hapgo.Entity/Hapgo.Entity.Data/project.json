@@ -1,0 +1,17 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Hapgo.Entity.Data Class Library",
+  "authors": [ "Rocket" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "dependencies": {
+    "Hapgo.Entity.Domain": "1.0.0-*",
+    "EntityFramework": "6.1.3"
+  },
+
+  "frameworks": {
+    "dnx451": {}
+  }
+}

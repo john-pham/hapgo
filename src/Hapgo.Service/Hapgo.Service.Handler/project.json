@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "description": "Hapgo.Service.Handler Class Library",
+  "authors": [ "Rocket" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "dnx451": { }
+  },
+  "dependencies": {
+    "Hapgo.BC.BackEnd": "1.0.0-*",
+    "Hapgo.BC.FrontEnd": "1.0.0-*"
+  }
+}

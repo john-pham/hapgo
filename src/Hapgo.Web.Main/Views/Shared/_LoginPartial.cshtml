@@ -1,0 +1,31 @@
+﻿@using System.Security.Claims
+
+@if (User.IsSignedIn())
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li ng-class="{active:hasActiveClass('manageaccount')}">
+            <a ui-sref="manageaccount" title="Manage">Hello @User.GetUserName()!</a>
+        </li>
+        <li>
+            <button type="button" ng-click="logOff()" class="btn btn-link navbar-btn navbar-link">Log off</button>
+        </li>
+    </ul>
+
+    @*<form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a ui-sref="manageaccount" title="Manage">Hello @User.GetUserName()!</a>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
+            </li>
+        </ul>
+    </form>*@
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li ng-class="{active:hasActiveClass('register')}"><a ui-sref="register">Register</a></li>
+        <li ng-class="{active:hasActiveClass('signin')}"><a ui-sref="signin">Log in</a></li>
+    </ul>
+}

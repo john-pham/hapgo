@@ -1,0 +1,61 @@
+﻿<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <i class="fa fa-dashboard"></i> <small>logging</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<!-- /.row -->
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-condensed" ng-init="app.init()">
+                    <thead>
+                        <tr>
+                            <td><strong>#Time</strong></td>
+                            <td><strong>Name</strong></td>
+                            <td><strong>Subject</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in app.Items">
+                            <td>{{item.CreatedDateString}}</td>
+                            <td>{{item.Name}}</td>
+                            <td>{{item.Title}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer">
+            @Html.Partial("_Pagination")
+        </div>
+    </div>
+</div>
+
+@*<table class="table table-bordered table-hover table-condensed" ng-init="app.init()">
+    <thead>
+        <tr>
+            <td><strong>#Time</strong></td>
+            <td><strong>Title</strong></td>
+            <td><strong>Domain</strong></td>
+            <td><strong>Process</strong></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in app.betlist">
+            <td>{{item.TimestampString}}</td>
+            <td>{{item.Title}}</td>
+            <td>{{item.AppDomainName}}</td>
+            <td>{{item.ProcessName}}</td>
+        </tr>
+    </tbody>
+</table>*@

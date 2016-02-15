@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0-*",
+  "description": "Hapgo.Services.BackEnd Class Library",
+  "authors": [ "Rocket" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "dnx451": { }
+  },
+  "dependencies": {
+    "Hapgo.Models.BackEnd": "1.0.0-*"
+  }
+}

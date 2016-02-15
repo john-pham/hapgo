@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HappyGo</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Custom CSS -->
+    <link href="~/css/gsdk-base.css" rel="stylesheet" />
+    <!-- Morris Charts CSS -->
+    <link rel="stylesheet" href="~/lib/morrisjs/morris.css" />
+    <link rel="stylesheet" href="~/lib/datetimepicker/jquery.datetimepicker.css" />
+    <!-- Custom Fonts -->
+    <link href="~/lib/components-font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div class="image-container set-full-height" style="background-image: url('img/wizard-city.jpg')">
+        <!--   Creative Tim Branding   -->
+        <a href="http://happygo.caicho.com">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="img/new_logo.png">
+                </div>
+                <div class="brand">
+                    Happy Go
+                </div>
+            </div>
+        </a>
+
+        <!--   Big container   -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    @RenderBody()
+                </div>
+            </div> <!-- row -->
+        </div> <!--  big container -->
+
+        <div class="footer">
+            <div class="container">
+                Made with <i class="fa fa-heart heart"></i> by <a href="http://happygo.caicho.com">Happy Go</a>.
+            </div>
+        </div>
+
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

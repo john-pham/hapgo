@@ -1,0 +1,26 @@
+{
+  "name": "ASP.NET",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3.3.5",
+    "jquery": "2.1.4",
+    "jquery-validation": "1.14.0",
+    "jquery-validation-unobtrusive": "3.2.4",
+    "bootstrap-touch-carousel": "0.8.0",
+    "angular": "^1.4.8",
+    "angular-route": "*",
+    "angular-cookies": "*",
+    "angular-resource": "*",
+    "angular-ui-router": "*",
+    "requirejs": "^2.1.18",
+    "domReady": "2.0.1",
+    "raphael": "^2.1.4",
+    "morrisjs": "^0.5.1",
+    "components-font-awesome": "^4.5.0",
+    "angular-http-loader": "^0.1.7",
+    "datetimepicker": "^2.4.5"
+  },
+  "resolutions": {
+    "angular": "^1.4.8"
+  }
+}

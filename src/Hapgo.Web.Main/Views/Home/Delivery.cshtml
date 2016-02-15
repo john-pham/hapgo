@@ -1,0 +1,87 @@
+﻿<style>
+    
+#holder{    
+height:200px;    
+width:550px;
+background-color:#F5F5F5;
+border:1px solid #A4A4A4;
+margin-left:10px;   
+}
+#place {
+position:relative;
+margin:7px;
+}
+#place a{
+font-size:0.6em;
+}
+#place li
+{
+ list-style: none outside none;
+ position: absolute;   
+}    
+#place li:hover
+{
+background-color:yellow;      
+} 
+#place .seat{
+background:url("img/available_seat_img.gif") no-repeat scroll 0 0 transparent;
+height:33px;
+width:33px;
+display:block;   
+}
+#place .selectedSeat
+{ 
+background-image:url("img/booked_seat_img.gif");          
+}
+#place .selectingSeat
+{ 
+background-image:url("img/selected_seat_img.gif");        
+}
+#place .row-3, #place .row-4{
+margin-top:10px;
+}
+#seatDescription li{
+verticle-align:middle;    
+list-style: none outside none;
+padding-left:35px;
+height:35px;
+float:left;
+}
+</style>
+<!--      Wizard container        -->
+<div class="wizard-container">
+    <div class="card wizard-card ct-wizard-green" id="wizard">
+        <form action="" method="">
+            <!--        You can switch "ct-wizard-azzure"  with one of the next bright colors: "ct-wizard-blue", "ct-wizard-green", "ct-wizard-orange", "ct-wizard-red"             -->
+
+            <div class="wizard-header">
+                <h3>
+                    Dịch vụ <b>Đặt Vé Xe</b><br>
+                    <small>Hổ trợ đặt ghế trước và chọn dịch vụ tốt nhất qua mạng internet</small>
+                </h3>
+            </div>
+            <ul>
+                <li><a href="#location" data-toggle="tab">Chọn Tuyến</a></li>
+                <li><a href="#type" data-toggle="tab">Khách Hàng</a></li>
+                <li><a href="#facilities" data-toggle="tab">Chọn Ghế</a></li>
+                <li><a href="#description" data-toggle="tab">Thanh Toán</a></li>
+            </ul>
+            <div class="tab-content">
+                @Html.Partial("Delivery.Location")
+                @Html.Partial("Delivery.Type")
+                @Html.Partial("Delivery.Facilities")
+                @Html.Partial("Delivery.Payment")
+            </div>
+            <div class="wizard-footer">
+                <div class="pull-right">
+                    <input type='button' class='btn btn-next btn-fill btn-success btn-wd btn-sm' name='next' value='Tiếp tục' />
+                    <input type='button' class='btn btn-finish btn-fill btn-success btn-wd btn-sm' name='finish' value='Hoàn tất' />
+                </div>
+                <div class="pull-left">
+                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Quay lại' />
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </form>
+    </div>
+</div> <!-- wizard container -->

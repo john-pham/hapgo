@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-*",
+  "description": "Hapgo.Models.BackEnd Class Library",
+  "authors": [ "Rocket" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "dnx451": {
+      "frameworkAssemblies": {
+        "System.Runtime.Serialization": "4.0.0.0"
+      }
+    }
+  }
+}

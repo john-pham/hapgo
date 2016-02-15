@@ -1,0 +1,26 @@
+﻿<div class="tab-pane" id="description">
+    <div class="row">
+        <h4 class="info-text"> Thanh toán online </h4>
+        <div class="col-sm-6 col-sm-offset-1">
+            <div class="form-group">
+                <span class="f-left">
+                    <input type="radio" >
+                    <label><i class="fa fa-credit-card text-primary"></i>&nbsp;Thanh toán chuyển khoản</label>
+                </span>
+                
+                <div class="alert alert-warning">
+                    <strong>Lưu ý !</strong>
+                    Quý khách vui lòng chuyển khoản thanh toán tiền vé trong vòng <strong>12 tiếng</strong> kể từ thời gian đặt vé.
+                    Lưu ý:&nbsp;Để việc chuyển khoản được diễn ra nhanh chóng và tiện lợi, quý khách có thể ra ATM hoặc quầy giao dịch của ngân hàng VietinBank để chuyển khoản trực tiếp vào tài khoản Nhà xe.
+                    Thời gian chuyển khoản: 08:00 đến 17:00 trong ngày, không nhận đặt vé chuyển khoản vào các ngày thứ Bảy, Chủ nhật.
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>Số tiền cần thanh toán: </label>
+                <strong class="text-primary" ng-bind-html="info.totalMoney|svcMoney">420.000<sup>₫</sup></strong>
+            </div>
+        </div>
+    </div>
+</div>

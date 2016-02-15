@@ -1,0 +1,156 @@
+﻿@using System.Security.Claims
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewData["Title"]</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/site.sb.css" />
+    <!-- Morris Charts CSS -->
+    <link rel="stylesheet" href="~/lib/morrisjs/morris.css" />
+    <link rel="stylesheet" href="~/lib/datetimepicker/jquery.datetimepicker.css" />
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="~/lib/components-font-awesome/css/font-awesome.min.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" asp-controller="Overview" asp-action="Index">
+                    ASP.NET
+                </a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown" ng-if="logs.length > 0">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li ng-repeat="item in logs" class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>{{item.CreatedDateString}}</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> {{item.CreatedDateString}}</p>
+                                        <p>{{item.Name}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a ui-sref="logging">Read All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a role="button" ng-click="setupMaintenance(2)"><span class="label label-default">Setup Daily Maintennace</span></a>
+                        </li>
+                        <li>
+                            <a role="button" ng-click="setupMaintenance(1)"><span class="label label-danger">Setup Emergency Stop</span></a>
+                        </li>
+                        <li class="divider"></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle login-partial" data-toggle="dropdown"><i class="fa fa-user"></i> @User.GetUserName() <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a ui-sref="manageaccount"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a ui-sref="manageaccount"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a ui-sref="manageaccount"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#" ng-click="logOff()"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li ng-class="{active:hasActiveClass('home')}">
+                        <a ui-sref="home"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li ng-class="{active:hasActiveClass('betlist')}">
+                        <a ui-sref="betlist"><i class="fa fa-fw fa-bar-chart-o"></i> Transaction</a>
+                    </li>
+                    <li ng-class="{active:hasActiveClass('rejection')}">
+                        <a ui-sref="rejection"><i class="fa fa-fw fa-table"></i> Rejection</a>
+                    </li>
+                    <li ng-class="{active:hasActiveClass('bookmaker')}">
+                        <a ui-sref="bookmaker"><i class="fa fa-fw fa-edit"></i> Bookmaker</a>
+                    </li>
+                    <li ng-class="{active:hasActiveClass('payout')}">
+                        <a ui-sref="payout"><i class="fa fa-fw fa-desktop"></i> Payout</a>
+                    </li>
+                    <li>
+                        <a ui-sref="betlist"><i class="fa fa-fw fa-wrench"></i> etc.</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> etc. <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a ui-sref="betlist">etc.</a>
+                            </li>
+                            <li>
+                                <a ui-sref="betlist">etc.</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a ui-sref="betlist"><i class="fa fa-fw fa-file"></i> etc.</a>
+                    </li>
+                    <li>
+                        <a ui-sref="betlist"><i class="fa fa-fw fa-dashboard"></i> etc.</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>

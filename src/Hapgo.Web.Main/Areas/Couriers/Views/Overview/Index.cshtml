@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Events Monitoring";
+}
+
+@section scripts
+{
+    <script src="~/lib/requirejs/require.js" data-main="/scripts/couriers/config"></script>
+}
+
+<style>
+    .flyover .alert {
+        left: 50%;
+        top: 50%;
+        position: fixed;
+        z-index: 1050;
+    }
+
+    .flyover .mask {
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        background: black;
+        z-index: 1049;
+    }
+</style>
+
+
+<div class="row" ng-cloak>
+    <div ui-view></div>
+
+    <script type="text/ng-template" id="example-loader.tpl.html">
+        <div class="flyover">
+            <div class="mask"></div>
+            <div class="alert alert-info">
+                <strong>Loading {{title}}...</strong>
+            </div>
+        </div>
+    </script>
+    <!-- show loader for GET methods -->
+    <div ng-http-loader methods="['POST']" template="example-loader.tpl.html"></div>
+
+</div>
